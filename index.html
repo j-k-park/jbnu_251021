@@ -326,6 +326,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            let deepDiveCache = {};
+            let promptsCache = {};
+
             const navItems = document.querySelectorAll('.nav-item');
             const contentSections = document.querySelectorAll('.content-section');
 
@@ -377,7 +380,14 @@
                         theoryTitle.textContent = title;
                         theoryText.textContent = text;
                         theoryDetailsContainer.classList.remove('hidden');
-                        geminiDeepDiveResult.innerHTML = '';
+                        
+                        if (deepDiveCache[title]) {
+                            geminiDeepDiveResult.innerHTML = deepDiveCache[title];
+                            geminiDeepDiveBtn.innerHTML = '🔄 다시 생성하기';
+                        } else {
+                            geminiDeepDiveResult.innerHTML = '';
+                            geminiDeepDiveBtn.innerHTML = '🤖 AI로 더 알아보기';
+                        }
                         
                         theoryBoxes.forEach(b => b.style.borderColor = '#CBD5E0');
                         box.style.borderColor = '#4A5568';
@@ -437,9 +447,12 @@
                 geminiDeepDiveBtn.addEventListener('click', async () => {
                     const conceptTitle = theoryTitle.textContent;
                     showLoader(geminiDeepDiveResult);
-                    const prompt = `'${conceptTitle}' 개념에 대해 초등학생, 중고등학생을 가르치는 교사가 쉽게 이해할 수 있도록 각각 따로 설명하고, 실제 교실 상황에 적용할 수 있는 구체적인 예시를 한 가지 들어주세요.`;
+                    const prompt = `'${conceptTitle}' 개념에 대해 초등학생, 중고등학생을 가르치는 교사가 쉽게 이해할 수 있도록 각각 따로 설명하고, 실제 교실 상황에 적용할 수 있는 구체적인 예시를 한 가지 들어주세요. 답변은 마크다운 형식을 사용하지 말고 일반 텍스트로만 작성해주세요.`;
                     const result = await callGeminiAPI(prompt);
-                    geminiDeepDiveResult.innerHTML = result.replace(/\n/g, '<br>');
+                    const formattedResult = result.replace(/\n/g, '<br>');
+                    geminiDeepDiveResult.innerHTML = formattedResult;
+                    deepDiveCache[conceptTitle] = formattedResult;
+                    geminiDeepDiveBtn.innerHTML = '🔄 다시 생성하기';
                 });
             }
 
@@ -455,15 +468,17 @@
                     
                     const systemPrompt = "당신은 교육 철학에 대한 깊은 이해를 바탕으로 교사들에게 창의적인 교육 아이디어를 제공하는 AI 조수입니다. 다음은 '학교지식 인식론의 전환'에 대한 요약입니다: 전통적 지식 구분은 절대적이지 않으며, 20세기 교육 인식론(본질주의, 구조주의, 경험주의)은 한계에 도달했습니다. 대안으로 인간 중심주의를 벗어나는 포스트휴머니즘과 비대표성이론이 제시됩니다. 이는 인간과 비인간(기술, 자연 등)의 경계가 흐려지고, 모든 존재가 상호작용하며 경험을 구성한다는 관점입니다.";
 
-                    const userPrompt = `위 내용을 바탕으로, 초등학교와 중고등학교 '${selectedSubject}' 교사의 입장에서 학생들과 토론하거나 수업 설계를 위해 고민해볼 수 있는 새로운 논제 3가지를 각각 생성해주세요. 각 논제는 서로 다른 관점을 반영하고, 구체적인 질문 형태로 제시해주세요.`;
+                    const userPrompt = `위 내용을 바탕으로, 초등학교와 중고등학교 '${selectedSubject}' 교사의 입장에서 학생들과 토론하거나 수업 설계를 위해 고민해볼 수 있는 새로운 논제 3가지를 각각 생성해주세요. 각 논제는 서로 다른 관점을 반영하고, 구체적인 질문 형태로 제시해주세요. 답변은 마크다운 형식을 사용하지 말고 일반 텍스트로만 작성해주세요.`;
                     
                     const result = await callGeminiAPI(userPrompt, systemPrompt);
-                    geminiPromptsResult.innerHTML = result.replace(/\n/g, '<br>');
+                    const formattedResult = result.replace(/\n/g, '<br>');
+                    geminiPromptsResult.innerHTML = formattedResult;
+                    promptsCache['lastResult'] = formattedResult;
+                    generatePromptsBtn.innerHTML = '🔄 다시 생성하기';
                 });
             }
         });
     </script>
 </body>
 </html>
-
 
