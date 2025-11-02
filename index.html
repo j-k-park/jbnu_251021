@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9장 학교지식 인식론의 전환</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <!-- Chosen Palette: Warm Neutrals & Slate Blue --><!-- Application Structure Plan: 이 애플리케이션은 보고서의 선형적인 슬라이드 구조를 탈피하여, 사용자가 핵심 주제(전통적 지식 비판, 20세기 인식론의 한계, 새로운 대안, 결론)를 자유롭게 탐색할 수 있는 주제별 대시보드 형태로 설계되었습니다. 상단 탐색 메뉴를 통해 각 주제로 즉시 이동할 수 있으며, 각 섹션 내에서는 클릭 가능한 카드와 다이어그램을 통해 정보를 단계적으로 발견할 수 있습니다. 이러한 구조는 복잡한 철학적 개념들을 한 번에 보여주기보다 사용자의 상업작용에 따라 점진적으로 제시하여 정보 과부하를 줄이고, 개념 간의 관계를 더 쉽게 파악하도록 돕기 위해 선택되었습니다. --><!-- Visualization & Content Choices: 보고서의 내용이 텍스트 중심의 개념 설명이므로, 데이터 시각화 차트 대신 개념의 구조와 관계를 보여주는 데 중점을 두었습니다. 1) 전통적 지식 비판: 3가지 관점을 나란히 배치된 카드로 제시하여 비교/탐색을 용이하게 했습니다(HTML/CSS/JS). 2) 20세기 인식론의 한계: 각 인식론(본질주의 등)과 그에 대한 비판을 연결된 카드로 구성하여 '이론과 반론' 구조를 명확히 했습니다(HTML/CSS/JS). 3) 비대표성이론: 핵심 개념과 하위 이론들의 관계를 시각적인 다이어그램 형태로 구현하여 복잡한 이론적 관계를 직관적으로 이해할 수 있게 했습니다(HTML/CSS/JS). 4) 결론: 인본주의와 포스트휴먼 경험의 차이점을 명확하게 보여주기 위해 비교 테이블을 사용했습니다(HTML). 이 모든 방식은 텍스트를 시각적, 공간적으로 재구성하여 사용자의 이해를 돕는 것을 목표로 합니다. --><!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --><style>
         body {
             font-family: 'Pretendard', sans-serif;
             background-color: #F8F6F2; /* 변경 */
@@ -100,11 +100,12 @@
 <body class="antialiased">
     <div id="app" class="container mx-auto px-4 py-8 max-w-5xl">
         <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">9장 학교지식 인식론의 전환</h1>
+            <h3 class="text-2xl md:text-2xl font-bold mb-2">제4부 포스트휴먼 사회에서의 <strong class="keyword-orange">학교교육과정</strong>의 변화</h3><br>
+            <h2 class="text-4xl md:text-5xl font-bold mb-2">9장 학교지식 인식론의 전환</h2>
             <p class="text-lg"><br><strong class="keyword-teal">인본주의</strong>를 넘어 <strong class="keyword-orange">포스트휴먼 경험</strong>으로의 여정</p>
             <p class="text-right font-bold mt-4">발표자 : 202462304 박정교</p>
             <div class="mt-2 flex justify-end">
-                <img id="adjustable-image" src="https://file.notion.so/f/f/a57f2ff5-0671-465c-bf6a-c699bdf0fd16/3a199f97-f1d4-405b-856d-1eb38e8402f2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7-2025-10-10-214714.svg?table=block&id=2883ec20-06d9-802c-8879-f10a58613375&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&expirationTimestamp=1760126400000&signature=TPhjmStFtaoqV_sdpm2Pf9d3BnHUNybfRJnHaoQutZM&downloadName=%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7-2025-10-10-214714.svg" alt="Diagram Image" class="" style="width: 140px; height: auto;">
+                <img id="adjustable-image" src="https://ivy-rugby-daf.notion.site/image/attachment%3A3a199f97-f1d4-405b-856d-1eb38e8402f2%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7-2025-10-10-214714.svg?table=block&id=2883ec20-06d9-802c-8879-f10a58613375&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&userId=&cache=v2" alt="Diagram Image" class="" style="width: 140px; height: auto;">
             </div>
         </header>
 
@@ -154,7 +155,7 @@
                  <div class="text-center mb-10">
                     <div class="flex justify-center items-center">
                         <svg class="w-8 h-8 mr-4 text-[#C87A4B]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16M8 4v16m8-16v16"></path></svg>
-                        <h2 class="text-3xl font-bold">20세기 교육과정 인식론의 한계</h2>
+                        <h2 class="text-3xl font-bold">20세기 <span class="keyword-orange">교육과정</span> 인식론의 한계</h2>
                     </div>
                     <p class="max-w-3xl mx-auto mt-2">20세기를 지배한 <strong class="keyword-teal">본질주의, 구조주의, 경험주의</strong>는 오늘날 지식 생태계를 설명하기에 한계가 있음. <br>각 인식론의 핵심 주장과 왜 유효하지 않은지 탐구함.</p>
                 </div>
@@ -201,7 +202,7 @@
                         <div class="flex justify-between items-center">
                             <div class="flex items-center">
                                 <svg class="w-6 h-6 mr-3 text-[#C87A4B]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                <h3 class="card-title text-2xl">3. 경험주의적 인식론의 한계</h3>
+                                <h3 class="card-title text-2xl">3. 경험주의적 인식론의 한계임</h3>
                             </div>
                             <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
                         </div>
@@ -283,13 +284,18 @@
                 <div id="theory-details" class="card mt-8 hidden">
                     <h3 id="theory-title" class="card-title text-xl mb-2"></h3>
                     <p id="theory-text" class="text-gray-700"></p>
-                    <div class="mt-4">
+                    <div class="mt-4 flex flex-wrap gap-2"> <!-- Modified for flex layout and gap -->
                         <button id="gemini-deep-dive" class="gemini-btn flex items-center justify-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             AI로 더 알아보기
                         </button>
+                        <!-- New Button Added -->
+                        <button id="copy-gemini-result-btn" class="gemini-btn flex items-center justify-center bg-gray-500 hover:bg-gray-600" style="display: none;">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            답변 복사
+                        </button>
                     </div>
-                    <div id="gemini-deep-dive-result" class="mt-4 p-4 border-t border-gray-200"></div>
+                    <div id="gemini-deep-dive-result" class="mt-4 p-4 border-t border-gray-200" data-plain-text=""></div>
                 </div>
 
             </section>
@@ -442,6 +448,7 @@
             const theoryText = document.getElementById('theory-text');
             const geminiDeepDiveBtn = document.getElementById('gemini-deep-dive');
             const geminiDeepDiveResult = document.getElementById('gemini-deep-dive-result');
+            const copyGeminiResultBtn = document.getElementById('copy-gemini-result-btn'); // Get the new button
 
             if(theoryBoxes.length > 0 && theoryDetailsContainer) {
                 theoryBoxes.forEach(box => {
@@ -454,13 +461,18 @@
                         theoryDetailsContainer.classList.remove('hidden');
                         
                         if (deepDiveCache[title]) {
+                            const plainText = deepDiveCache[`${title}-plain`]; // Get plain text from cache
                             geminiDeepDiveResult.innerHTML = deepDiveCache[title];
+                            geminiDeepDiveResult.dataset.plainText = plainText; // Load plain text into dataset
                             const newButtonContent = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12A8 8 0 1013.2 5.2"></path></svg> 다시 생성하기`;
                             geminiDeepDiveBtn.innerHTML = newButtonContent;
+                            copyGeminiResultBtn.style.display = 'inline-flex'; // Show copy button
+                            copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`; // Reset copy button text
                         } else {
                             geminiDeepDiveResult.innerHTML = '';
                             const initialButtonContent = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg> AI로 더 알아보기`;
                             geminiDeepDiveBtn.innerHTML = initialButtonContent;
+                            copyGeminiResultBtn.style.display = 'none'; // Hide copy button
                         }
                         
                         theoryBoxes.forEach(b => b.style.borderColor = '#CBD5E0');
@@ -471,7 +483,7 @@
 
             // --- Gemini API Integration ---
 
-            const apiKey = "AIzaSyDySwvl1O5oLXVrTo_Q1HXy21gRC3xAuts"; // API 키는 Canvas 환경에서 자동으로 제공됩니다.
+            const apiKey = "AIzaSyBamcxjzjtlNhEx8VqpRGf32VDaFztBuoI"; 
 
             async function callGeminiAPI(prompt, systemInstruction = "") {
                 const model = 'gemini-2.5-flash-preview-05-20';
@@ -514,6 +526,9 @@
             
             function showLoader(container) {
                 container.innerHTML = '<div class="loader"></div>';
+                if (container.id === 'gemini-deep-dive-result') {
+                     copyGeminiResultBtn.style.display = 'none'; // Hide copy button during loading
+                }
             }
 
             // Feature 1: AI Deep Dive
@@ -521,13 +536,65 @@
                 geminiDeepDiveBtn.addEventListener('click', async () => {
                     const conceptTitle = theoryTitle.textContent;
                     showLoader(geminiDeepDiveResult);
-                    const prompt = `'${conceptTitle}' 개념에 대해 초등학생, 중고등학생을 가르치는 교사가 쉽게 이해할 수 있도록 각각 따로 설명하고, 실제 교실 상황에 적용할 수 있는 구체적인 예시를 한 가지 들어주세요. 답변은 마크다운 형식을 사용하지 말고 일반 텍스트로만 작성해주세요.`;
+                    const prompt = `'${conceptTitle}' 개념에 대해 초등학생, 중고등학생을 가르치는 교사가 쉽게 이해할 수 있도록 각각 따로 설명하고, 실제 교실 상황에 적용할 수 있는 구체적인 예시를 한 가지 들어주세요. 답변은 마크다운 형식을 사용하지 말되, '초등학생 설명', '중고등학생 설명', '교실 적용 예시'와 같은 소주제들은 <strong>소주제</strong>와 같이 <strong> 태그를 사용하여 굵게 표시해주세요.`;
                     const result = await callGeminiAPI(prompt);
                     const formattedResult = result.replace(/\n/g, '<br>');
+                    const plainTextResult = result.replace(/<strong>/g, '').replace(/<\/strong>/g, ''); // Store plain text for copying (without tags)
                     geminiDeepDiveResult.innerHTML = formattedResult;
+                    geminiDeepDiveResult.dataset.plainText = plainTextResult; // Store plain text in dataset
                     deepDiveCache[conceptTitle] = formattedResult;
+                    deepDiveCache[`${conceptTitle}-plain`] = plainTextResult; // Store plain text in cache
                     const newButtonContent = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12A8 8 0 1013.2 5.2"></path></svg> 다시 생성하기`;
                     geminiDeepDiveBtn.innerHTML = newButtonContent;
+                    copyGeminiResultBtn.style.display = 'inline-flex'; // Show copy button
+                    copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`; // Reset copy button text
+                });
+            }
+
+            // New Feature: Copy Button Logic
+            if (copyGeminiResultBtn) {
+                copyGeminiResultBtn.addEventListener('click', () => {
+                    const textToCopy = geminiDeepDiveResult.dataset.plainText;
+                    
+                    if (!textToCopy) {
+                         console.log("No text to copy.");
+                         return;
+                    }
+
+                    // Use document.execCommand as per instructions
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    textArea.style.position = 'fixed';  // Prevent scrolling to bottom
+                    textArea.style.top = '0';
+                    textArea.style.left = '0';
+                    textArea.style.width = '2em'; // Make it small
+                    textArea.style.height = '2em';
+                    textArea.style.padding = '0';
+                    textArea.style.border = 'none';
+                    textArea.style.outline = 'none';
+                    textArea.style.boxShadow = 'none';
+                    textArea.style.background = 'transparent';
+                    textArea.style.opacity = '0'; // Hide it
+                    document.body.appendChild(textArea);
+                    textArea.focus(); // Useless on iOS
+                    textArea.select();
+                    
+                    try {
+                        const successful = document.execCommand('copy');
+                        if (successful) {
+                            copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 복사 완료!`;
+                            setTimeout(() => {
+                                copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`;
+                            }, 2000);
+                        } else {
+                            copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> 복사 실패`;
+                        }
+                    } catch (err) {
+                        console.error('Clipboard copy failed:', err);
+                        copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> 복사 실패`;
+                    }
+                    
+                    document.body.removeChild(textArea);
                 });
             }
 
@@ -543,7 +610,7 @@
                     
                     const systemPrompt = "당신은 교육 철학에 대한 깊은 이해를 바탕으로 교사들에게 창의적인 교육 아이디어를 제공하는 AI 조수입니다. 다음은 '학교지식 인식론의 전환'에 대한 요약입니다: 전통적 지식 구분은 절대적이지 않으며, 20세기 교육 인식론(본질주의, 구조주의, 경험주의)은 한계에 도달했습니다. 대안으로 인간 중심주의를 벗어나는 포스트휴머니즘과 비대표성이론이 제시됩니다. 이는 인간과 비인간(기술, 자연 등)의 경계가 흐려지고, 모든 존재가 상호작용하며 경험을 구성한다는 관점입니다.";
 
-                    const userPrompt = `위 내용을 바탕으로, 초등학교와 중고등학교 '${selectedSubject}' 교사의 입장에서 학생들과 토론하거나 수업 설계를 위해 고민해볼 수 있는 새로운 논제 3가지를 각각 생성해주세요. 각 논제는 서로 다른 관점을 반영하고, 구체적인 질문 형태로 제시해주세요. 답변은 마크다운 형식을 사용하지 말고 일반 텍스트로만 작성해주세요.`;
+                    const userPrompt = `위 내용을 바탕으로, 초등학교와 중고등학교 '${selectedSubject}' 교사의 입장에서 학생들과 토론하거나 수업 설계를 위해 고민해볼 수 있는 새로운 논제 3가지를 각각 생성해주세요. 각 논제는 서로 다른 관점을 반영하고, 구체적인 질문 형태로 제시해주세요. 답변은 마크다운 형식을 사용하지 말되, '초등학교 논제', '중고등학교 논제'와 같은 소주제들은 <strong>소주제</strong>와 같이 <strong> 태그를 사용하여 굵게 표시해주세요.`;
                     
                     const result = await callGeminiAPI(userPrompt, systemPrompt);
                     const formattedResult = result.replace(/\n/g, '<br>');
@@ -556,5 +623,4 @@
     </script>
 </body>
 </html>
-
 
