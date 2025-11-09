@@ -47,7 +47,7 @@
             transition: max-height 0.5s ease-out;
         }
         .expandable.open .details {
-            max-height: 500px;
+            max-height: 1000px; /* 이미지 높이를 위해 충분히 늘림 */
         }
         .tag {
             background-color: #E2E8F0;
@@ -95,6 +95,21 @@
         }
         .keyword-teal { color: #0D9488; }
         .keyword-orange { color: #F97316; }
+
+        /* Image Modal Styles */
+        #image-modal {
+            transition: opacity 0.3s ease;
+        }
+        #modal-image {
+            transition: transform 0.3s ease;
+        }
+        #image-modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #image-modal:not(.hidden) {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -115,6 +130,7 @@
             <button data-target="s3" class="nav-item text-lg font-semibold py-4 px-6">3. 새로운 대안</button>
             <button data-target="s4" class="nav-item text-lg font-semibold py-4 px-6">4. 결론</button>
             <button data-target="s5" class="nav-item text-lg font-semibold py-4 px-6">5. 생각해 볼 것</button>
+            <button data-target="s6" class="nav-item text-lg font-semibold py-4 px-6">6. 2022 개정교육과정</button>
         </nav>
 
         <main id="content-container">
@@ -284,18 +300,17 @@
                 <div id="theory-details" class="card mt-8 hidden">
                     <h3 id="theory-title" class="card-title text-xl mb-2"></h3>
                     <p id="theory-text" class="text-gray-700"></p>
-                    <div class="mt-4 flex flex-wrap gap-2"> <!-- Modified for flex layout and gap -->
+                    <div class="mt-4 flex flex-wrap gap-2">
                         <button id="gemini-deep-dive" class="gemini-btn flex items-center justify-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             AI로 더 알아보기
                         </button>
-                        <!-- New Button Added -->
-                        <button id="copy-gemini-result-btn" class="gemini-btn flex items-center justify-center bg-gray-500 hover:bg-gray-600" style="display: none;">
+                        <button id="copy-deep-dive-btn" class="gemini-btn flex items-center justify-center" style="background-color: #718096;">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                             답변 복사
                         </button>
                     </div>
-                    <div id="gemini-deep-dive-result" class="mt-4 p-4 border-t border-gray-200" data-plain-text=""></div>
+                    <div id="gemini-deep-dive-result" class="mt-4 p-4 border-t border-gray-200"></div>
                 </div>
 
             </section>
@@ -399,7 +414,90 @@
                 </div>
 
             </section>
+            
+            <section id="s6" class="content-section">
+                <div class="text-center mb-10">
+                    <div class="flex justify-center items-center">
+                        <svg class="w-8 h-8 mr-4 text-[#C87A4B]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13.5M8.25 6.253l-3 3m3-3l3 3m-3.75 6.75l-3 3m3-3l3 3M15.75 6.253l3 3m-3-3l-3 3m3.75 6.75l3 3m-3-3l-3 3"></path></svg>
+                        <h2 class="text-3xl font-bold">6. 2022 개정교육과정</h2>
+                    </div>
+                    <p class="max-w-3xl mx-auto mt-2">포스트휴먼 사회에서 현재 교육과정 및 대학 입학전형 / 비전 살펴보기 </p>
+                </div>
+                <div class="card">
+                    <ul class="space-y-4 text-lg">
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">1. 2022 개정 초중등 교육과정 총론</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="curriculum-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3A9fe4513c-1266-4492-af17-a58f2695e5a1%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_013603.png?table=block&id=2a63ec20-06d9-8041-a24f-d35eff332cd6&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="2022 개정 교육과정" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">2. 2028학년도 서울대학교 신입생 입학전형 주요 사항</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="snu-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3A2b9836a1-debe-4d5c-ad57-17f4b5dd594a%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_014122.png?table=block&id=2a63ec20-06d9-804c-ba34-d231c3fa6e3a&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="2028 서울대학교 입학전형" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">3. 서울대학교 비전 및 인재상</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="snu-vision-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3Ab0c7ed56-721a-4c35-afd0-262988ebd736%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_014331.png?table=block&id=2a63ec20-06d9-806f-8426-ceba2241e104&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="서울대학교 비전 및 인재상" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">4. 2028학년도 경희대학교 신입생 입학전형 주요 사항</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="khu-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3A5c434e3c-d108-46e2-b8a3-be7081715c1f%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_014722.png?table=block&id=2a63ec20-06d9-8072-8684-f08e77c653c8&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="2028 경희대학교 입학전형" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">5. 경희대학교 비전 및 인재상</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="khu-vision-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3Ad6d76609-77d3-445a-b970-a6aa25c3e629%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_014856.png?table=block&id=2a63ec20-06d9-80f0-9c30-cfedccf0d5ca&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="경희대학교 비전 및 인재상" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">6. 전북대학교 비전 및 인재상</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="jbnu-vision-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3Af2e85295-fa76-411e-b48d-e048b94db898%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_015128.png?table=block&id=2a63ec20-06d9-8009-b033-f260fd3867e7&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="전북대학교 비전 및 인재상" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                        <li class="expandable cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">7. 전주교육대학교 비전 및 인재상</span>
+                                <span class="text-gray-500 text-2xl transform transition-transform duration-300">▼</span>
+                            </div>
+                            <div class="details mt-4">
+                                <img id="jnue-vision-img-thumb" src="https://ivy-rugby-daf.notion.site/image/attachment%3A9f293de8-3097-49db-bb60-9011e07b71e4%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-10_015404.png?table=block&id=2a63ec20-06d9-80fe-99e8-c7d33a38c1f3&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2" alt="전주교육대학교 비전 및 인재상" class="cursor-pointer w-full rounded-md shadow-md">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
         </main>
+    </div>
+
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+        <span id="close-modal" class="absolute top-6 right-8 text-white text-5xl cursor-pointer">&times;</span>
+        <img id="modal-image" src="" alt="Fullscreen Image" class="max-w-full max-h-full object-contain">
     </div>
 
     <script>
@@ -429,7 +527,12 @@
 
             const expandableCards = document.querySelectorAll('.expandable');
             expandableCards.forEach(card => {
-                card.addEventListener('click', () => {
+                card.addEventListener('click', (e) => {
+                    // 이미지 클릭 시 토글이 닫히지 않도록 함
+                    if (e.target.tagName === 'IMG') {
+                        return;
+                    }
+                    
                     card.classList.toggle('open');
                     const icon = card.querySelector('.transform');
                     if(icon) {
@@ -448,7 +551,25 @@
             const theoryText = document.getElementById('theory-text');
             const geminiDeepDiveBtn = document.getElementById('gemini-deep-dive');
             const geminiDeepDiveResult = document.getElementById('gemini-deep-dive-result');
-            const copyGeminiResultBtn = document.getElementById('copy-gemini-result-btn'); // Get the new button
+            const copyDeepDiveBtn = document.getElementById('copy-deep-dive-btn');
+
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed'; 
+                textarea.style.opacity = 0;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    return true;
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                    return false;
+                } finally {
+                    document.body.removeChild(textarea);
+                }
+            }
 
             if(theoryBoxes.length > 0 && theoryDetailsContainer) {
                 theoryBoxes.forEach(box => {
@@ -461,29 +582,37 @@
                         theoryDetailsContainer.classList.remove('hidden');
                         
                         if (deepDiveCache[title]) {
-                            const plainText = deepDiveCache[`${title}-plain`]; // Get plain text from cache
                             geminiDeepDiveResult.innerHTML = deepDiveCache[title];
-                            geminiDeepDiveResult.dataset.plainText = plainText; // Load plain text into dataset
                             const newButtonContent = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12A8 8 0 1013.2 5.2"></path></svg> 다시 생성하기`;
                             geminiDeepDiveBtn.innerHTML = newButtonContent;
-                            copyGeminiResultBtn.style.display = 'inline-flex'; // Show copy button
-                            copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`; // Reset copy button text
                         } else {
                             geminiDeepDiveResult.innerHTML = '';
                             const initialButtonContent = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg> AI로 더 알아보기`;
                             geminiDeepDiveBtn.innerHTML = initialButtonContent;
-                            copyGeminiResultBtn.style.display = 'none'; // Hide copy button
                         }
                         
                         theoryBoxes.forEach(b => b.style.borderColor = '#CBD5E0');
                         box.style.borderColor = '#4A5568';
                     });
                 });
+
+                if (copyDeepDiveBtn) {
+                    copyDeepDiveBtn.addEventListener('click', () => {
+                        const textToCopy = geminiDeepDiveResult.innerText;
+                        if (textToCopy && copyToClipboard(textToCopy)) {
+                            const originalText = copyDeepDiveBtn.innerHTML;
+                            copyDeepDiveBtn.innerHTML = '복사 완료!';
+                            setTimeout(() => {
+                                copyDeepDiveBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`;
+                            }, 2000);
+                        }
+                    });
+                }
             }
 
             // --- Gemini API Integration ---
 
-            const apiKey = "AIzaSyBamcxjzjtlNhEx8VqpRGf32VDaFztBuoI"; 
+            const apiKey = "AIzaSyDp3L9VD3aH_Dk5rx0TB2dIWxymKuKWnao"; // API 키는 Canvas 환경에서 자동으로 제공됩니다.
 
             async function callGeminiAPI(prompt, systemInstruction = "") {
                 const model = 'gemini-2.5-flash-preview-05-20';
@@ -526,9 +655,6 @@
             
             function showLoader(container) {
                 container.innerHTML = '<div class="loader"></div>';
-                if (container.id === 'gemini-deep-dive-result') {
-                     copyGeminiResultBtn.style.display = 'none'; // Hide copy button during loading
-                }
             }
 
             // Feature 1: AI Deep Dive
@@ -536,65 +662,23 @@
                 geminiDeepDiveBtn.addEventListener('click', async () => {
                     const conceptTitle = theoryTitle.textContent;
                     showLoader(geminiDeepDiveResult);
-                    const prompt = `'${conceptTitle}' 개념에 대해 초등학생, 중고등학생을 가르치는 교사가 쉽게 이해할 수 있도록 각각 따로 설명하고, 실제 교실 상황에 적용할 수 있는 구체적인 예시를 한 가지 들어주세요. 답변은 마크다운 형식을 사용하지 말되, '초등학생 설명', '중고등학생 설명', '교실 적용 예시'와 같은 소주제들은 <strong>소주제</strong>와 같이 <strong> 태그를 사용하여 굵게 표시해주세요.`;
+                    const prompt = `'${conceptTitle}' 개념에 대해 교사가 쉽게 이해할 수 있도록 **개념 설명**, **초등학생을 위한 설명**, **중고등학생을 위한 설명**, **교실 적용 예시** 순서로 나누어 설명함.
+
+**중요 규칙:**
+1. 모든 문장의 어미는 '~임', '~함', '~음', '~됨', '~짐', '~냄' 중 하나로 통일해야 함.
+2. '**개념 설명**', '**초등학생을 위한 설명**', '**중고등학생을 위한 설명**', '**교실 적용 예시**' 소제목은 반드시 **별표 두 개**로 감싸서 굵게 표시해야 함.
+3. 각 섹션(소제목이 이끄는 부분) 사이에는 '---REDLINE---' 구분선을 반드시 삽입해야 함.
+4. 답변은 마크다운 형식을 사용하지 말고, 위 규칙에 따른 일반 텍스트로만 작성해야 함.`;
+                    
                     const result = await callGeminiAPI(prompt);
-                    const formattedResult = result.replace(/\n/g, '<br>');
-                    const plainTextResult = result.replace(/<strong>/g, '').replace(/<\/strong>/g, ''); // Store plain text for copying (without tags)
+                    let formattedResult = result.replace(/\n/g, '<br>');
+                    formattedResult = formattedResult.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>');
+                    formattedResult = formattedResult.replace(/---REDLINE---/g, '<hr class="border-red-400 my-4 border-dashed">');
+                    
                     geminiDeepDiveResult.innerHTML = formattedResult;
-                    geminiDeepDiveResult.dataset.plainText = plainTextResult; // Store plain text in dataset
                     deepDiveCache[conceptTitle] = formattedResult;
-                    deepDiveCache[`${conceptTitle}-plain`] = plainTextResult; // Store plain text in cache
                     const newButtonContent = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12A8 8 0 1013.2 5.2"></path></svg> 다시 생성하기`;
                     geminiDeepDiveBtn.innerHTML = newButtonContent;
-                    copyGeminiResultBtn.style.display = 'inline-flex'; // Show copy button
-                    copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`; // Reset copy button text
-                });
-            }
-
-            // New Feature: Copy Button Logic
-            if (copyGeminiResultBtn) {
-                copyGeminiResultBtn.addEventListener('click', () => {
-                    const textToCopy = geminiDeepDiveResult.dataset.plainText;
-                    
-                    if (!textToCopy) {
-                         console.log("No text to copy.");
-                         return;
-                    }
-
-                    // Use document.execCommand as per instructions
-                    const textArea = document.createElement('textarea');
-                    textArea.value = textToCopy;
-                    textArea.style.position = 'fixed';  // Prevent scrolling to bottom
-                    textArea.style.top = '0';
-                    textArea.style.left = '0';
-                    textArea.style.width = '2em'; // Make it small
-                    textArea.style.height = '2em';
-                    textArea.style.padding = '0';
-                    textArea.style.border = 'none';
-                    textArea.style.outline = 'none';
-                    textArea.style.boxShadow = 'none';
-                    textArea.style.background = 'transparent';
-                    textArea.style.opacity = '0'; // Hide it
-                    document.body.appendChild(textArea);
-                    textArea.focus(); // Useless on iOS
-                    textArea.select();
-                    
-                    try {
-                        const successful = document.execCommand('copy');
-                        if (successful) {
-                            copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 복사 완료!`;
-                            setTimeout(() => {
-                                copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`;
-                            }, 2000);
-                        } else {
-                            copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> 복사 실패`;
-                        }
-                    } catch (err) {
-                        console.error('Clipboard copy failed:', err);
-                        copyGeminiResultBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> 복사 실패`;
-                    }
-                    
-                    document.body.removeChild(textArea);
                 });
             }
 
@@ -602,6 +686,7 @@
             const generatePromptsBtn = document.getElementById('generate-prompts-btn');
             const subjectSelect = document.getElementById('subject-select');
             const geminiPromptsResult = document.getElementById('gemini-prompts-result');
+            const copyPromptsBtn = document.getElementById('copy-prompts-btn');
 
             if (generatePromptsBtn) {
                 generatePromptsBtn.addEventListener('click', async () => {
@@ -610,17 +695,85 @@
                     
                     const systemPrompt = "당신은 교육 철학에 대한 깊은 이해를 바탕으로 교사들에게 창의적인 교육 아이디어를 제공하는 AI 조수입니다. 다음은 '학교지식 인식론의 전환'에 대한 요약입니다: 전통적 지식 구분은 절대적이지 않으며, 20세기 교육 인식론(본질주의, 구조주의, 경험주의)은 한계에 도달했습니다. 대안으로 인간 중심주의를 벗어나는 포스트휴머니즘과 비대표성이론이 제시됩니다. 이는 인간과 비인간(기술, 자연 등)의 경계가 흐려지고, 모든 존재가 상호작용하며 경험을 구성한다는 관점입니다.";
 
-                    const userPrompt = `위 내용을 바탕으로, 초등학교와 중고등학교 '${selectedSubject}' 교사의 입장에서 학생들과 토론하거나 수업 설계를 위해 고민해볼 수 있는 새로운 논제 3가지를 각각 생성해주세요. 각 논제는 서로 다른 관점을 반영하고, 구체적인 질문 형태로 제시해주세요. 답변은 마크다운 형식을 사용하지 말되, '초등학교 논제', '중고등학교 논제'와 같은 소주제들은 <strong>소주제</strong>와 같이 <strong> 태그를 사용하여 굵게 표시해주세요.`;
+                    const userPrompt = `위 내용을 바탕으로, 초등학교와 중고등학교 '${selectedSubject}' 교사의 입장에서 학생들과 토론하거나 수업 설계를 위해 고민해볼 수 있는 새로운 논제 3가지를 각각 생성함.
+
+**중요 규칙:**
+1. '**초등학교 ${selectedSubject} 교사 논제**'와 '**중고등학교 ${selectedSubject} 교사 논제**'라는 두 개의 소제목으로 명확히 구분해야 함.
+2. 모든 문장의 어미는 '~임', '~함', '~음', '~됨', '~짐', '~냄' 중 하나로 통일해야 함.
+3. 소제목은 반드시 **별표 두 개**로 감싸서 굵게 표시해야 함.
+4. 두 소제목 섹션 사이에는 '---REDLINE---' 구분선을 반드시 삽입해야 함.
+5. 답변은 마크다운 형식을 사용하지 말고, 위 규칙에 따른 일반 텍스트로만 작성해야 함.`;
                     
                     const result = await callGeminiAPI(userPrompt, systemPrompt);
-                    const formattedResult = result.replace(/\n/g, '<br>');
+                    let formattedResult = result.replace(/\n/g, '<br>');
+                    formattedResult = formattedResult.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>');
+                    formattedResult = formattedResult.replace(/---REDLINE---/g, '<hr class="border-red-400 my-4 border-dashed">');
+
                     geminiPromptsResult.innerHTML = formattedResult;
                     promptsCache['lastResult'] = formattedResult;
                     generatePromptsBtn.innerHTML = '논제 다시 생성';
+                });
+            }
+
+            if (copyPromptsBtn) {
+                copyPromptsBtn.addEventListener('click', () => {
+                    const textToCopy = geminiPromptsResult.innerText;
+                    if (textToCopy && copyToClipboard(textToCopy)) {
+                        const originalText = copyPromptsBtn.innerHTML;
+                        copyPromptsBtn.innerHTML = '복사 완료!';
+                        setTimeout(() => {
+                            copyPromptsBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> 답변 복사`;
+                        }, 2000);
+                    }
+                });
+            }
+
+            // Image Modal Logic
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeModal = document.getElementById('close-modal');
+            
+            // 3. All image thumbnail IDs
+            const imageThumbnails = [
+                document.getElementById('curriculum-img-thumb'),
+                document.getElementById('snu-img-thumb'),
+                document.getElementById('snu-vision-img-thumb'),
+                document.getElementById('khu-img-thumb'),
+                document.getElementById('khu-vision-img-thumb'),
+                document.getElementById('jbnu-vision-img-thumb'),
+                document.getElementById('jnue-vision-img-thumb')
+            ];
+
+            // 4. Loop to add click listener to all thumbnails
+            imageThumbnails.forEach(thumb => {
+                if (thumb) {
+                    thumb.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Prevent the toggle from closing
+                        if (imageModal && modalImage) {
+                            modalImage.src = thumb.src;
+                            imageModal.classList.remove('hidden');
+                        }
+                    });
+                }
+            });
+
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    if (imageModal) {
+                        imageModal.classList.add('hidden');
+                    }
+                });
+            }
+            
+            if (imageModal) {
+                imageModal.addEventListener('click', (e) => {
+                    // Close if clicked on the background
+                    if (e.target === imageModal) {
+                        imageModal.classList.add('hidden');
+                    }
                 });
             }
         });
     </script>
 </body>
 </html>
-
